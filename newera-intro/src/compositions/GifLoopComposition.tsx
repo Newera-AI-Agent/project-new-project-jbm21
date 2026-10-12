@@ -42,7 +42,7 @@ const CornerPulse: React.FC<{ x: number; y: number; delay: number }> = ({
   );
 };
 
-export const GifLoopComposition: React.FC = () => {
+const GifLoopComp: React.FC = () => {
   const frame = useCurrentFrame();
   const { durationInFrames, fps } = useVideoConfig();
 
@@ -190,12 +190,13 @@ export const GifLoopComposition: React.FC = () => {
   );
 };
 
-// Composition metadata
-GifLoopComposition.displayName = 'GifLoopComposition';
+GifLoopComp.displayName = 'GifLoopComposition';
+
+export const GifLoopComposition = GifLoopComp;
 
 const GIF_CONFIG = {
   id: 'GifLoopComposition',
-  component: GifLoopComposition,
+  component: GifLoopComp,
   durationInFrames: 75, // 5 seconds at 15fps
   fps: 15,
   width: 480,
@@ -203,4 +204,4 @@ const GIF_CONFIG = {
   defaultProps: {},
 };
 
-export { GifLoopComposition, GIF_CONFIG };
+export default GIF_CONFIG;
