@@ -40,3 +40,5 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-12T21:07:00.483Z | VM 3/3] VERIFIED green: cd newera-intro && npx tsc --noEmit 2>&1
 - [2026-10-12T21:22:52.790Z | VM 3/3] VERIFIED green: cat newera-intro/UPLOAD_URLS.md && cd newera-intro && npm run build 2>&1 | tail -3
 - [2026-10-12T21:23:01.492Z | VM 3/3] VERIFIED green: cd newera-intro && npx tsc --noEmit 2>&1 && echo 'TypeScript OK'
+- [2026-10-12T21:28:32.230Z | VM 3/3] VERIFIED green: cd newera-intro && npm run build 2>&1 | tail -10
+- [2026-10-12T21:28:41.370Z | VM 3/3] VERIFIED green: cd newera-intro && npx tsc --noEmit 2>&1 && echo 'All checks passed'
