@@ -33,3 +33,5 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-12T19:48:02.333Z | VM 3/3] boot: VM 3/3 online (job vm-mv5nz2l0-oh24rw6j, 240 min budget, relay continuation)
 - [2026-10-12T19:48:02.333Z | VM 3/3] self-check PASS: shell: VERIFIED (the harness executed bash on this VM at boot); node: v24.21.0; npm: 11.19.0; python3: Python 3.12.3; git: repo checked out @ 4af8cb1; filesystem: WRITABLE (the harness wrote + read back a probe file); skills: 22 knowledge docs in .newera/skills/ (list_skills / read_skill); project: 
 - [2026-10-12T19:48:05.028Z | VM 3/3] boot auto-setup: npm install --no-audit --no-fund ok
+- [2026-10-12T20:20:50.962Z | VM 3/3] VERIFIED green: cd newera-intro && echo '=== VIDEO FILES ===' && ls -lh out/ && echo '=== SOURCE FILES ===' && find src -type f -name '*.ts' -o -name '*.tsx' -o -name '*.css' |
+- [2026-10-12T20:21:04.428Z | VM 3/3] VERIFIED green: cd newera-intro && npx tsc --noEmit 2>&1
