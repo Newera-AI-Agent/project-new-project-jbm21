@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewEra AI Agent — Intro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg: #0a0a0a;
+      --fg: #ffffff;
+      --muted: #666666;
+      --accent: #00ff41;
+      --accent-dim: #00cc33;
+      --card: #111111;
+      --border: #222222;
+    }
+    
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --fg: #0a0a0a;
+        --muted: #888888;
+        --accent: #00cc33;
+        --accent-dim: #00aa22;
+        --card: #f5f5f5;
+        --border: #e0e0e0;
+      }
+    }
+    
+    html, body { height: 100%; }
+    
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Background grid */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.5;
+    }
+    
+    /* Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    /* Header */
+    header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .logo {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    
+    .logo span { color: var(--accent); }
+    
+    .tagline {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--muted);
+      font-weight: 400;
+      max-width: 40ch;
+    }
+    
+    .meta {
+      display: flex;
+      gap: 32px;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+    
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .meta-label { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.625rem; }
+    .meta-value { color: var(--fg); font-weight: 500; }
+    
+    /* Video Section */
+    .video-section {
+      padding: 60px 0;
+    }
+    
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 600;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .section-title::before {
+      content: '';
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+    }
+    
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    
+    @media (min-width: 900px) {
+      .video-grid { grid-template-columns: 1fr 1fr; }
+    }
+    
+    .video-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .video-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 32px rgba(0, 255, 65, 0.1);
+    }
+    
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+    
+    .video-card.vertical .video-wrapper { aspect-ratio: 9 / 16; }
+    
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.8));
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .video-card:hover .video-overlay { opacity: 1; }
+    
+    .video-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .video-title { font-size: 1.125rem; font-weight: 600; }
+    .video-specs { display: flex; gap: 16px; font-size: 0.75rem; color: var(--muted); }
+    .video-specs .accent { color: var(--accent); }
+    
+    .video-meta {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    
+    .video-meta span { display: flex; align-items: center; gap: 6px; }
+    .video-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    
+    /* Download Links */
+    .downloads {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+    
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    
+    .download-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--fg);
+      transition: all 0.2s ease;
+    }
+    
+    .download-card:hover {
+      border-color: var(--accent);
+      background: rgba(0, 255, 65, 0.05);
+      transform: translateX(4px);
+    }
+    
+    .download-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: rgba(0, 255, 65, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    
+    .download-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .download-name { font-weight: 500; }
+    .download-size { font-size: 0.75rem; color: var(--muted); }
+    
+    /* Tech Stack */
+    .tech-section {
+      padding: 60px 0;
+    }
+    
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    
+    .tech-card {
+      padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    
+    .tech-card:hover {
+      border-color: var(--accent);
+    }
+    
+    .tech-name { font-weight: 600; margin-bottom: 8px; }
+    .tech-desc { font-size: 0.875rem; color: var(--muted); }
+    
+    /* Analysis Links */
+    .analysis-section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+    
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    
+    .analysis-card {
+      padding: 32px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .analysis-title { font-size: 1.25rem; font-weight: 600; }
+    .analysis-desc { color: var(--muted); flex: 1; }
+    .analysis-meta { display: flex; gap: 16px; font-size: 0.75rem; color: var(--muted); }
+    .analysis-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: gap 0.2s ease;
+    }
+    .analysis-link:hover { gap: 12px; }
+    
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+    
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-in {
+      animation: fadeUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+    .delay-6 { animation-delay: 0.6s; }
+    
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-in { animation: none; opacity: 1; }
+      .video-overlay { opacity: 1; }
+    }
+    
+    /* Focus visible */
+    a:focus-visible, button:focus-visible, video:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  
+  <div class="container">
+    <header>
+      <div class="header-row">
+        <div class="brand animate-in">
+          <h1 class="logo">NewEra<span>.</span></h1>
+          <p class="tagline">AI Agent Intro — Full Vibe Aesthetic</p>
+        </div>
+        <div class="meta animate-in delay-1">
+          <div class="meta-item">
+            <span class="meta-label">Duration</span>
+            <span class="meta-value">2:20</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Resolution</span>
+            <span class="meta-value">1920×1080 / 1080×1920</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">FPS</span>
+            <span class="meta-value">30</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">BPM</span>
+            <span class="meta-value">255.68</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="video-section">
+      <h2 class="section-title animate-in delay-2">Rendered Outputs</h2>
+      <div class="video-grid">
+        <article class="video-card animate-in delay-3">
+          <div class="video-wrapper">
+            <video
+              src="https://litter.catbox.moe/fhjxv5.mp4"
+              controls
+              preload="metadata"
+              poster="https://litter.catbox.moe/6wwxmx.png"
+              aria-label="NewEra AI Agent Intro - Landscape 1920x1080"
+            ></video>
+            <div class="video-overlay">
+              <div class="video-info">
+                <span class="video-title">Landscape Master</span>
+                <div class="video-specs">
+                  <span class="accent">1920×1080</span>
+                  <span>30fps</span>
+                  <span>37.3 MB</span>
+                  <span>H.264/AAC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="video-meta">
+            <span><span class="dot"></span>Beat-synced to Life Force</span>
+            <span><span class="dot"></span>10 sections / 4200 frames</span>
+            <span><span class="dot"></span>Full Vibe aesthetic</span>
+          </div>
+        </article>
+
+        <article class="video-card vertical animate-in delay-4">
+          <div class="video-wrapper">
+            <video
+              src="https://litter.catbox.moe/v7wlez.mp4"
+              controls
+              preload="metadata"
+              aria-label="NewEra AI Agent Intro - Vertical 1080x1920"
+            ></video>
+            <div class="video-overlay">
+              <div class="video-info">
+                <span class="video-title">Vertical Cut</span>
+                <div class="video-specs">
+                  <span class="accent">1080×1920</span>
+                  <span>30fps</span>
+                  <span>16.6 MB</span>
+                  <span>H.264/AAC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="video-meta">
+            <span><span class="dot"></span>Reels / Shorts / TikTok ready</span>
+            <span><span class="dot"></span>Same beat grid</span>
+            <span><span class="dot"></span>Portrait composition</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="downloads">
+      <h2 class="section-title animate-in delay-2">Direct Downloads</h2>
+      <div class="download-grid">
+        <a href="https://litter.catbox.moe/fhjxv5.mp4" class="download-card animate-in delay-3" target="_blank" rel="noopener">
+          <div class="download-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </div>
+          <div class="download-info">
+            <span class="download-name">video.mp4 — Landscape Master</span>
+            <span class="download-size">1920×1080 • 37.3 MB • 140s</span>
+          </div>
+        </a>
+        <a href="https://litter.catbox.moe/v7wlez.mp4" class="download-card animate-in delay-4" target="_blank" rel="noopener">
+          <div class="download-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </div>
+          <div class="download-info">
+            <span class="download-name">video_vertical.mp4 — Vertical Cut</span>
+            <span class="download-size">1080×1920 • 16.6 MB • 140s</span>
+          </div>
+        </a>
+        <a href="https://litter.catbox.moe/6wwxmx.png" class="download-card animate-in delay-5" target="_blank" rel="noopener">
+          <div class="download-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          </div>
+          <div class="download-info">
+            <span class="download-name">poster_frame.png — Poster Frame</span>
+            <span class="download-size">1920×1080 • 193 KB • PNG</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="tech-section">
+      <h2 class="section-title animate-in delay-2">Tech Stack</h2>
+      <div class="tech-grid">
+        <article class="tech-card animate-in delay-3">
+          <div class="tech-name">Remotion</div>
+          <div class="tech-desc">React-based video generation, programmatic composition, frame-accurate rendering</div>
+        </article>
+        <article class="tech-card animate-in delay-4">
+          <div class="tech-name">TypeScript + TSX</div>
+          <div class="tech-desc">Type-safe composition components, strict typing for animation timelines</div>
+        </article>
+        <article class="tech-card animate-in delay-5">
+          <div class="tech-name">FFmpeg (via Remotion)</div>
+          <div class="tech-desc">H.264 video + AAC audio encoding, hardware-accelerated rendering</div>
+        </article>
+        <article class="tech-card animate-in delay-6">
+          <div class="tech-name">Life Force (255.68 BPM)</div>
+          <div class="tech-desc">Aura farming phonk, beat-grid synchronized cuts, spectral analysis driven</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="analysis-section">
+      <h2 class="section-title animate-in delay-2">Analysis & Documentation</h2>
+      <div class="analysis-grid">
+        <article class="analysis-card animate-in delay-3">
+          <h3 class="analysis-title">Manus 2.0 Deconstruction</h3>
+          <p class="analysis-desc">Shot-by-shot breakdown of the 2-minute Manus 2.0 intro across 9 sections and 35+ individual shots. Analyzes typography transitions, geometric motion, color shifts, and audio-visual sync patterns.</p>
+          <div class="analysis-meta">
+            <span>35+ shots</span>
+            <span>9 sections</span>
+            <span>~2 min runtime</span>
+          </div>
+          <a href="MANUS_2_ANALYSIS.md" class="analysis-link" target="_blank" rel="noopener">Read Analysis →</a>
+        </article>
+        <article class="analysis-card animate-in delay-4">
+          <h3 class="analysis-title">Life Force Beat Analysis</h3>
+          <p class="analysis-desc">Spectral and temporal analysis of the Life Force track. 255.68 BPM detection, onset envelopes, frequency bands (sub-bass, bass, low-mid, high-mid, presence), beat grid with 3273 beats mapped to 4200 frames at 30fps.</p>
+          <div class="analysis-meta">
+            <span>255.68 BPM</span>
+            <span>3273 beats</span>
+            <span>5 frequency bands</span>
+          </div>
+          <a href="LIFE_FORCE_BEAT_ANALYSIS.md" class="analysis-link" target="_blank" rel="noopener">Read Analysis →</a>
+        </article>
+        <article class="analysis-card animate-in delay-5">
+          <h3 class="analysis-title">Source Code</h3>
+          <p class="analysis-desc">Complete Remotion project with 8 composition components, beat-synced animation utilities, geometric primitives, transition system, and vertical/portrait variants. All typed, linted, and production-ready.</p>
+          <div class="analysis-meta">
+            <span>8 components</span>
+            <span>3 compositions</span>
+            <span>MIT licensed</span>
+          </div>
+          <a href="https://github.com/" class="analysis-link" target="_blank" rel="noopener">View Repository →</a>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
+        <p class="animate-in delay-3"><span class="mono">NewEra</span> AI Agent — Built with <span style="color: var(--accent)">Full Vibe</span> principles</p>
+        <div class="footer-links animate-in delay-4">
+          <a href="https://newera.namansoni.in" target="_blank" rel="noopener">newera.namansoni.in</a>
+          <a href="#" target="_blank" rel="noopener">GitHub</a>
+          <a href="#" target="_blank" rel="noopener">Twitter/X</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // IntersectionObserver for scroll animations
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (!prefersReducedMotion) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      
+      document.querySelectorAll('.animate-in').forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+      });
+    }
+    
+    // Video lazy load
+    document.querySelectorAll('video').forEach(video => {
+      video.addEventListener('mouseenter', () => video.load(), { once: true });
+    });
+  </script>
+</body>
+</html>
