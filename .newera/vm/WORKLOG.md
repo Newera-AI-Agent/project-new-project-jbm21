@@ -24,3 +24,4 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-12T16:06:50.098Z | VM 2/3] boot: VM 2/3 online (job vm-mv5g2suq-c35p2c5k, 240 min budget, relay continuation)
 - [2026-10-12T16:06:50.099Z | VM 2/3] self-check PASS: shell: VERIFIED (the harness executed bash on this VM at boot); node: v24.21.0; npm: 11.19.0; python3: Python 3.12.3; git: repo checked out @ ad298ee; filesystem: WRITABLE (the harness wrote + read back a probe file); skills: 22 knowledge docs in .newera/skills/ (list_skills / read_skill); project: 
 - [2026-10-12T16:07:00.316Z | VM 2/3] boot auto-setup: npm install --no-audit --no-fund ok
+- [2026-10-12T16:43:45.054Z | VM 2/3] PLAN updated: 6 steps
