@@ -1,5 +1,5 @@
 import React from 'react';
-import {Composition, useCurrentFrame, useVideoConfig, Audio} from 'remotion';
+import {Composition, useCurrentFrame, useVideoConfig, Audio, staticFile} from 'remotion';
 import {
   Circle,
   Rect,
@@ -43,6 +43,8 @@ import {
   getProgressInSection,
 } from '../data/beats';
 import {easings, lerp, clamp, mapRange} from '../utils/animation';
+
+const audioSrc = staticFile('../../life_force.mp3');
 
 const WIDTH = 1920;
 const HEIGHT = 1080;
@@ -596,9 +598,6 @@ export const MainComposition: React.FC = () => {
 
   return (
     <>
-      import {staticFile} from 'remotion';
-const audioSrc = staticFile('../../life_force.mp3');
-
       <Audio src={audioSrc} />
       
       {/* Background */}
