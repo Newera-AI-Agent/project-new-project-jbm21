@@ -1,0 +1,32 @@
+{
+  "name": "newera-intro",
+  "version": "1.0.0",
+  "description": "NewEra AI Agent Full Vibe Intro Video",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "remotion render src/compositions/MainComposition.tsx MainComposition out/video.mp4 --concurrency=4",
+    "preview": "remotion preview src/compositions/MainComposition.tsx",
+    "dev": "remotion studio",
+    "lint": "eslint src --ext .ts,.tsx"
+  }
+,
+  "dependencies": {
+    "remotion": "4.0.257",
+    "@remotion/cli": "4.0.257",
+    "@remotion/bundler": "4.0.257",
+    "@remotion/renderer": "4.0.257",
+    "@remotion/player": "4.0.257",
+    "@remotion/shapes": "4.0.257",
+    "@remotion/transitions": "4.0.257",
+    "@remotion/eslint-config": "4.0.257",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "typescript": "5.6.3"
+  }
+}
