@@ -2,6 +2,7 @@ import {registerRoot, Composition} from 'remotion';
 import {MainComposition} from './compositions/MainComposition';
 import {VerticalComposition} from './compositions/VerticalComposition';
 import {PosterFrame} from './compositions/PosterFrame';
+import {GifLoopComposition} from './compositions/GifLoopComposition';
 
 const WIDTH = 1920;
 const HEIGHT = 1080;
@@ -38,6 +39,15 @@ export const RemotionRoot = () => (
       fps={FPS}
       width={WIDTH}
       height={HEIGHT}
+      defaultProps={{}}
+    />
+    <Composition
+      id="GifLoopComposition"
+      component={GifLoopComposition}
+      durationInFrames={75}
+      fps={15}
+      width={480}
+      height={270}
       defaultProps={{}}
     />
   </>
