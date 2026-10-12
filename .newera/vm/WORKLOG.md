@@ -36,3 +36,5 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-12T20:20:50.962Z | VM 3/3] VERIFIED green: cd newera-intro && echo '=== VIDEO FILES ===' && ls -lh out/ && echo '=== SOURCE FILES ===' && find src -type f -name '*.ts' -o -name '*.tsx' -o -name '*.css' |
 - [2026-10-12T20:21:04.428Z | VM 3/3] VERIFIED green: cd newera-intro && npx tsc --noEmit 2>&1
 - [2026-10-12T20:22:24.900Z | VM 3/3] PLAN updated: 6 steps
+- [2026-10-12T21:06:10.252Z | VM 3/3] VERIFIED green: cd newera-intro && npm run build 2>&1 | tail -50
+- [2026-10-12T21:07:00.483Z | VM 3/3] VERIFIED green: cd newera-intro && npx tsc --noEmit 2>&1
