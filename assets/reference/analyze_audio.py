@@ -93,7 +93,7 @@ for band_name, (low, high) in bands.items():
 analysis = {
     'duration': float(duration),
     'sample_rate': int(sr),
-    'tempo': float(tempo),
+    'tempo': float(tempo.item()),
     'beat_times': beat_times.tolist(),
     'onset_times': onset_times.tolist(),
     'peak_times': peak_times.tolist(),
@@ -169,7 +169,7 @@ for i in range(0, len(beat_times), beats_per_measure):
 
 with open('beat_timeline.json', 'w') as f:
     json.dump({
-        'tempo': float(tempo),
+        'tempo': float(tempo.item()),
         'beats_per_measure': beats_per_measure,
         'measures': measures,
         'total_measures': len(measures),
