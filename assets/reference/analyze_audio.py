@@ -10,7 +10,10 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 # Load audio
-y, sr = librosa.load('life_force.mp3', sr=None)
+import os
+script_dir = os.path.dirname(os.path.abspath(__file__))
+mp3_path = os.path.join(script_dir, 'life_force.mp3')
+y, sr = librosa.load(mp3_path, sr=None)
 duration = len(y) / sr
 print(f"Duration: {duration:.2f}s")
 print(f"Sample rate: {sr}Hz")
@@ -19,7 +22,7 @@ print(f"Samples: {len(y)}")
 # 1. Beat detection
 tempo, beat_frames = librosa.beat.beat_track(y=y, sr=sr, units='frames')
 beat_times = librosa.frames_to_time(beat_frames, sr=sr)
-print(f"Estimated tempo: {tempo:.1f} BPM")
+print(f"Estimated tempo: {float(tempo.item()):.1f} BPM")
 print(f"Number of beats: {len(beat_times)}")
 print(f"Beat times: {beat_times[:20]}")
 
