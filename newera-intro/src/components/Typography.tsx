@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, interpolateColor} from 'remotion';
+import {AbsoluteFill, interpolateColors} from 'remotion';
 import {easings} from '../utils/animation';
 
 interface TextProps {
