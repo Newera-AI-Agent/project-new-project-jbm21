@@ -1,6 +1,6 @@
 import React from 'react';
-import {Interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
-import {BeatsData, getBeatAtTime, getSectionAtTime} from '../data/beats';
+import {Interpolate, useCurrentFrame, useVideoConfig, spring} from 'remotion';
+import {BEATS, getBeatAtTime, getSectionAtTime} from '../data/beats';
 import {
   TextReveal,
   TypewriterText,
@@ -39,7 +39,7 @@ export const GifLoopComposition: React.FC<Props> = () => {
   const beatTime = loopFrame / 15; // 15fps for GIF
   
   // Find a beat near the loop time
-  const currentBeat = BeatsData.find(b => Math.abs(b.time - beatTime) < 0.5);
+  const currentBeat = BEATS.find(b => Math.abs(b.time - beatTime) < 0.5);
   const isDownbeat = currentBeat && currentBeat.confidence > 0.8;
   
   return (
@@ -110,7 +110,7 @@ export const GifLoopComposition: React.FC<Props> = () => {
         height={40}
         barCount={32}
         color="#00FF41"
-        audioData={BeatsData.map(b => b.confidence)}
+        audioData={BEATS.map(b => b.confidence)}
         currentFrame={loopFrame}
         fps={15}
         style="rounded"
@@ -206,12 +206,6 @@ export const GifLoopComposition: React.FC<Props> = () => {
         }}
       />
       
-      <style jsx>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.5); }
-        }
-      `}</style>
     </div>
   );
 };
