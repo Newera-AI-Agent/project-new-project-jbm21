@@ -30,3 +30,6 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-12T17:25:17.227Z | VM 2/3] VERIFIED green: cd newera-intro && npx tsc --noEmit 2>&1 | head -50
 - [2026-10-12T17:33:38.794Z | VM 2/3] VERIFIED green: cd newera-intro && rm -rf node_modules/.cache && npx tsc --noEmit
 - [2026-10-12T19:47:39.529Z | VM 2/3] RELAY checkpoint at step 346 — handoff committed, VM 3 continues.
+- [2026-10-12T19:48:02.333Z | VM 3/3] boot: VM 3/3 online (job vm-mv5nz2l0-oh24rw6j, 240 min budget, relay continuation)
+- [2026-10-12T19:48:02.333Z | VM 3/3] self-check PASS: shell: VERIFIED (the harness executed bash on this VM at boot); node: v24.21.0; npm: 11.19.0; python3: Python 3.12.3; git: repo checked out @ 4af8cb1; filesystem: WRITABLE (the harness wrote + read back a probe file); skills: 22 knowledge docs in .newera/skills/ (list_skills / read_skill); project: 
+- [2026-10-12T19:48:05.028Z | VM 3/3] boot auto-setup: npm install --no-audit --no-fund ok
