@@ -596,7 +596,10 @@ export const MainComposition: React.FC = () => {
 
   return (
     <>
-      <Audio src="/life_force.mp3" />
+      import {staticFile} from 'remotion';
+const audioSrc = staticFile('../../life_force.mp3');
+
+      <Audio src={audioSrc} />
       
       {/* Background */}
       <Rect
