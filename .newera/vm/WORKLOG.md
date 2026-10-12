@@ -26,3 +26,4 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-12T16:07:00.316Z | VM 2/3] boot auto-setup: npm install --no-audit --no-fund ok
 - [2026-10-12T16:43:45.054Z | VM 2/3] PLAN updated: 6 steps
 - [2026-10-12T16:56:24.534Z | VM 2/3] PLAN updated: 6 steps
+- [2026-10-12T17:10:39.391Z | VM 2/3] VERIFIED green: cd newera-intro && npm run build 2>&1 | tail -20
