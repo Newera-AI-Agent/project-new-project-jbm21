@@ -29,3 +29,4 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-12T17:10:39.391Z | VM 2/3] VERIFIED green: cd newera-intro && npm run build 2>&1 | tail -20
 - [2026-10-12T17:25:17.227Z | VM 2/3] VERIFIED green: cd newera-intro && npx tsc --noEmit 2>&1 | head -50
 - [2026-10-12T17:33:38.794Z | VM 2/3] VERIFIED green: cd newera-intro && rm -rf node_modules/.cache && npx tsc --noEmit
+- [2026-10-12T19:47:39.529Z | VM 2/3] RELAY checkpoint at step 346 — handoff committed, VM 3 continues.
