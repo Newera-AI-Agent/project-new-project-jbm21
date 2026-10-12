@@ -1,4 +1,7 @@
 export const easings = {
+  easeInSine: (t: number) => 1 - Math.cos((t * Math.PI) / 2),
+  easeOutSine: (t: number) => Math.sin((t * Math.PI) / 2),
+  easeInOutSine: (t: number) => -(Math.cos(Math.PI * t) - 1) / 2,
   linear: (t: number) => t,
   easeInQuad: (t: number) => t * t,
   easeOutQuad: (t: number) => t * (2 - t),
