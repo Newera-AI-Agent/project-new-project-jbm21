@@ -1,11 +1,11 @@
 {
   "code": "39zmcxb9dpy3",
-  "jobId": "vm-mv584gf4-796hyv8d",
-  "relayIndex": 0,
+  "jobId": "vm-mv5g2suq-c35p2c5k",
+  "relayIndex": 1,
   "maxMinutes": 240,
   "state": "running",
-  "step": 299,
-  "minutesLeft": 12,
+  "step": 9,
+  "minutesLeft": 232,
   "todoOpen": 6,
-  "updatedAt": "2026-10-12T16:06:16.725Z"
+  "updatedAt": "2026-10-12T16:09:01.338Z"
 }
