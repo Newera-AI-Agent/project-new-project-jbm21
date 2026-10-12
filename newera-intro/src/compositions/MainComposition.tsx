@@ -44,7 +44,7 @@ import {
 } from '../data/beats';
 import {easings, lerp, clamp, mapRange} from '../utils/animation';
 
-const audioSrc = staticFile('../../life_force.mp3');
+const audioSrc = staticFile('life_force.mp3');
 
 const WIDTH = 1920;
 const HEIGHT = 1080;
