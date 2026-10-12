@@ -4,7 +4,6 @@ import './src/index.css';
 Config.setVideoImageFormat('jpeg');
 Config.setJpegQuality(90);
 Config.setChromiumOpenGlRenderer('swiftshader');
-Config.setNumberOfAudioChannels(2);
 Config.setAudioBitrate('128k');
 
 // Disable parallelism for more stable rendering

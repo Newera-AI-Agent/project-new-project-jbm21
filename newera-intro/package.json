@@ -5,12 +5,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "remotion render src/compositions/MainComposition.tsx MainComposition out/video.mp4 --concurrency=4",
-    "preview": "remotion preview src/compositions/MainComposition.tsx",
+    "build": "remotion render src/index.tsx MainComposition out/video.mp4 --concurrency=4",
+    "preview": "remotion preview src/index.tsx",
     "dev": "remotion studio",
     "lint": "eslint src --ext .ts,.tsx"
-  }
-,
+  },
   "dependencies": {
     "remotion": "4.0.257",
     "@remotion/cli": "4.0.257",
