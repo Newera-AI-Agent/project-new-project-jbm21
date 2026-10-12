@@ -72,10 +72,10 @@ const IntroSection: React.FC<{progress: number; energy: number}> = ({progress, e
       />
 
       {/* Pulsing circles on downbeats */}
-      {[1, 2, 3, 4, 5, 6].map((i) => (
+      {Array.from({length: 6}).map((_, i) => (
         <PulsingCircle
           key={`pulse-${i}`}
-          x={CENTER_X + (i - 3.5) * 120}
+          x={CENTER_X + (i - 2.5) * 120}
           y={CENTER_Y}
           baseRadius={20}
           maxRadius={80 + energy * 100}
@@ -164,7 +164,7 @@ const BuildSection: React.FC<{progress: number; energy: number; measureProgress:
       />
 
       {/* Rotating squares on beat */}
-      Array.from({length: 8}).map((_, i) => (
+      {Array.from({length: 8}).map((_, i) => (
         <RotatingSquare
           key={`rot-${i}`}
           x={CENTER_X + Math.cos((i / 8) * Math.PI * 2) * 200 * energy}
@@ -176,10 +176,10 @@ const BuildSection: React.FC<{progress: number; energy: number; measureProgress:
           rotations={energy}
           easing="easeInOutCubic"
         />
-      ))
+      ))}
 
       {/* Horizontal lines building up */}
-      Array.from({length: 12}).map((_, i) => (
+      {Array.from({length: 12}).map((_, i) => (
         <Line
           key={`hline-${i}`}
           x1={CENTER_X - 400 * easings.easeOutExpo(lineProgress)}
@@ -190,10 +190,10 @@ const BuildSection: React.FC<{progress: number; energy: number; measureProgress:
           strokeWidth={i % 3 === 0 ? 3 : 1}
           opacity={energy * 0.6 * lineProgress}
         />
-      ))
+      ))}
 
       {/* Vertical lines */}
-      Array.from({length: 16}).map((_, i) => (
+      {Array.from({length: 16}).map((_, i) => (
         <Line
           key={`vline-${i}`}
           x1={CENTER_X - 300 + i * 40}
@@ -204,7 +204,7 @@ const BuildSection: React.FC<{progress: number; energy: number; measureProgress:
           strokeWidth={1}
           opacity={energy * 0.4 * lineProgress}
         />
-      ))
+      ))}
 
       {/* Building text */}
       <AnimatedText
@@ -231,7 +231,7 @@ const BuildSection: React.FC<{progress: number; energy: number; measureProgress:
       />
 
       {/* Energy circles */}
-      Array.from({length: 4}).map((_, i) => (
+      {Array.from({length: 4}).map((_, i) => (
         <Circle
           key={`energy-${i}`}
           x={CENTER_X - 200 + i * 133}
@@ -241,7 +241,7 @@ const BuildSection: React.FC<{progress: number; energy: number; measureProgress:
           fill={true}
           opacity={energy * (1 - i * 0.2)}
         />
-      ))
+      ))}
     </ShapeGroup>
   );
 };
@@ -254,7 +254,7 @@ const DropSection: React.FC<{progress: number; energy: number; measureProgress: 
   return (
     <ShapeGroup>
       {/* Massive expanding rings on downbeats */}
-      Array.from({length: 6}).map((_, i) => (
+      {Array.from({length: 6}).map((_, i) => (
         <ExpandingRing
           key={`ring-${i}`}
           x={CENTER_X}
@@ -267,10 +267,10 @@ const DropSection: React.FC<{progress: number; energy: number; measureProgress: 
           opacity={energy * 0.8 * (1 - i * 0.15)}
           easing="easeOutExpo"
         />
-      ))
+      ))}
 
       {/* Geometric explosion - morphing shapes */}
-      Array.from({length: 12}).map((_, i) => {
+      {Array.from({length: 12}).map((_, i) => {
         const angle = (i / 12) * Math.PI * 2;
         const distance = 150 + explosionProgress * 400;
         return (
@@ -302,7 +302,7 @@ const DropSection: React.FC<{progress: number; energy: number; measureProgress: 
       />
 
       {/* Inner rotating squares */}
-      Array.from({length: 3}).map((_, i) => (
+      {Array.from({length: 3}).map((_, i) => (
         <RotatingSquare
           key={`core-rot-${i}`}
           x={CENTER_X}
@@ -314,7 +314,7 @@ const DropSection: React.FC<{progress: number; energy: number; measureProgress: 
           rotations={isSecondDrop ? 2 : 1}
           easing="easeInOutCubic"
         />
-      ))
+      ))}
 
       {/* Main typography lock */}
       <AnimatedText
@@ -358,7 +358,7 @@ const DropSection: React.FC<{progress: number; energy: number; measureProgress: 
       />
 
       {/* Radial lines */}
-      Array.from({length: 36}).map((_, i) => {
+      {Array.from({length: 36}).map((_, i) => {
         const angle = (i / 36) * Math.PI * 2;
         const innerRadius = 100 + explosionProgress * 100;
         const outerRadius = 200 + explosionProgress * 300;
@@ -436,7 +436,7 @@ const BreakdownSection: React.FC<{progress: number; energy: number; measureProgr
       <TextSequence
         x={CENTER_X}
         y={CENTER_Y - 50}
-        texts=["minimal", "precise", "powerful", "newera"]
+        texts={["minimal", "precise", "powerful", "newera"]}
         progress={progress}
         fontSize={TYPOGRAPHY.titleLarge.size}
         fontWeight={TYPOGRAPHY.titleLarge.weight}
@@ -449,7 +449,7 @@ const BreakdownSection: React.FC<{progress: number; energy: number; measureProgr
       />
 
       {/* Slow expanding rings */}
-      Array.from({length: 3}).map((_, i) => (
+      {Array.from({length: 3}).map((_, i) => (
         <ExpandingRing
           key={`break-ring-${i}`}
           x={CENTER_X}
@@ -462,7 +462,7 @@ const BreakdownSection: React.FC<{progress: number; energy: number; measureProgr
           opacity={energy * 0.3}
           easing="easeInOutCubic"
         />
-      ))
+      ))}
 
       {/* Breathing circle */}
       <Circle
