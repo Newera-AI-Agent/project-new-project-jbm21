@@ -310,7 +310,7 @@ const DropSectionVertical: React.FC<{progress: number; energy: number; measurePr
         fontSize={TYPOGRAPHY.displayLarge.size * 1.5}
         fontWeight={TYPOGRAPHY.displayLarge.weight}
         color={COLOR_PALETTE.foreground}
-        glitchIntensity={energy * 0.5}
+        intensity={energy * 0.5}
         glitchColor={COLOR_PALETTE.accent}
       />
 
@@ -370,11 +370,11 @@ const BreakdownSectionVertical: React.FC<{progress: number; energy: number; meas
           key={`morph-${i}`}
           x={CENTER_X + (i - 1) * 250}
           y={CENTER_Y - 100}
+          size={60 + i * 30}
           progress={ringProgress}
           color={i === 1 ? COLOR_PALETTE.accent : COLOR_PALETTE.gray600}
           strokeWidth={2}
           sides={3 + i}
-          easing="easeInOutSine"
         />
       ))}
 
@@ -387,7 +387,7 @@ const BreakdownSectionVertical: React.FC<{progress: number; energy: number; meas
         fontSize={TYPOGRAPHY.displayMedium.size * 1.1}
         fontWeight={TYPOGRAPHY.displayMedium.weight}
         color={COLOR_PALETTE.foreground}
-        maxTracking={0.5}
+        maxLetterSpacing={0.5}
         easing="easeOutExpo"
       />
     </ShapeGroup>
@@ -409,7 +409,7 @@ export const VerticalComposition: React.FC = () => {
       <Audio src={audioSrc} />
       {section === 'intro' && <IntroSectionVertical progress={sectionProgress} energy={energy} />}
       {section === 'build' && <BuildSectionVertical progress={sectionProgress} energy={energy} measureProgress={measureProgress} />}
-      {(section === 'drop1' || section === 'drop2') && (
+      {(section === 'drop' || section === 'drop2') && (
         <DropSectionVertical
           progress={sectionProgress}
           energy={energy}

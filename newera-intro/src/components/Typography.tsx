@@ -163,10 +163,7 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({
       textAlign={textAlign}
       fontFamily={fontFamily}
       rotation={0}
-      // transform handled by wrapper
-    >
-      <div style={{transform, transformOrigin: textAlign === 'center' ? 'center center' : textAlign === 'right' ? 'right center' : 'left center'}} />
-    </Text>
+    />
   );
 };
 
