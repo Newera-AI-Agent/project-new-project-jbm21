@@ -1,516 +1,289 @@
-export const BEATS = [
-  0.05333333333333334,
-  0.2986666666666667,
-  0.5333333333333333,
-  0.7786666666666666,
-  1.0133333333333334,
-  1.2586666666666666,
-  1.504,
-  1.7386666666666666,
-  1.9733333333333334,
-  2.2186666666666666,
-  2.453333333333333,
-  2.6986666666666665,
-  2.933333333333333,
-  3.1786666666666665,
-  3.4133333333333336,
-  3.648,
-  3.8933333333333335,
-  4.1386666666666665,
-  4.384,
-  4.618666666666667,
-  4.8533333333333335,
-  5.0986666666666665,
-  5.344,
-  5.578666666666667,
-  5.8133333333333335,
-  6.058666666666666,
-  6.304,
-  6.538666666666667,
-  6.773333333333333,
-  7.008,
-  7.253333333333333,
-  7.498666666666667,
-  7.733333333333333,
-  7.978666666666666,
-  8.213333333333333,
-  8.458666666666666,
-  8.693333333333333,
-  8.938666666666666,
-  9.184,
-  9.418666666666667,
-  9.653333333333334,
-  9.888,
-  10.122666666666667,
-  10.357333333333333,
-  10.592,
-  10.837333333333333,
-  11.072,
-  11.306666666666667,
-  11.552,
-  11.797333333333333,
-  12.032,
-  12.277333333333333,
-  12.512,
-  12.757333333333333,
-  13.002666666666666,
-  13.237333333333334,
-  13.472,
-  13.717333333333332,
-  13.962666666666667,
-  14.197333333333333,
-  14.432,
-  14.666666666666666,
-  14.912,
-  15.146666666666667,
-  15.392,
-  15.637333333333334,
-  15.872,
-  16.117333333333335,
-  16.352,
-  16.597333333333335,
-  16.842666666666666,
-  17.077333333333332,
-  17.312,
-  17.557333333333332,
-  17.792,
-  18.037333333333333,
-  18.272,
-  18.517333333333333,
-  18.752,
-  18.997333333333334,
-  19.232,
-  19.477333333333334,
-  19.712,
-  19.957333333333334,
-  20.192,
-  20.437333333333335,
-  20.682666666666666,
-  20.917333333333332,
-  21.152,
-  21.386666666666667,
-  21.632,
-  21.877333333333333,
-  22.112,
-  22.346666666666668,
-  22.592,
-  22.837333333333333,
-  23.072,
-  23.317333333333334,
-  23.552,
-  23.797333333333334,
-  24.032,
-  24.277333333333335,
-  24.522666666666666,
-  24.75733333333333,
-  24.992,
-  25.237333333333332,
-  25.472,
-  25.717333333333332,
-  25.952,
-  26.197333333333333,
-  26.432,
-  26.677333333333333,
-  26.912,
-  27.157333333333334,
-  27.392,
-  27.637333333333334,
-  27.872,
-  28.117333333333335,
-  28.362666666666666,
-  28.597333333333335,
-  28.832,
-  29.077333333333332,
-  29.312,
-  29.557333333333332,
-  29.792,
-  30.026666666666667,
-  30.272,
-  30.517333333333333,
-  30.752,
-  30.986666666666668,
-  31.232,
-  31.477333333333334,
-  31.712,
-  31.957333333333334,
-  32.192,
-  32.42666666666667,
-  32.672,
-  32.906666666666666,
-  33.152,
-  33.397333333333336,
-  33.632,
-  33.86666666666667,
-  34.112,
-  34.35733333333334,
-  34.592,
-  34.83733333333333,
-  35.08266666666667,
-  35.31733333333333,
-  35.552,
-  35.797333333333334,
-  36.04266666666667,
-  36.27733333333333,
-  36.512,
-  36.757333333333335,
-  37.00266666666667,
-  37.23733333333333,
-  37.472,
-  37.717333333333336,
-  37.952,
-  38.19733333333333,
-  38.432,
-  38.666666666666664,
-  38.912,
-  39.157333333333334,
-  39.392,
-  39.626666666666665,
-  39.872,
-  40.10666666666667,
-  40.352,
-  40.59733333333333,
-  40.832,
-  41.077333333333335,
-  41.312,
-  41.54666666666667,
-  41.781333333333336,
-  42.026666666666664,
-  42.272,
-  42.51733333333333,
-  42.752,
-  42.99733333333333,
-  43.232,
-  43.477333333333334,
-  43.72266666666667,
-  43.95733333333333,
-  44.192,
-  44.437333333333335,
-  44.68266666666667,
-  44.91733333333333,
-  45.152,
-  45.397333333333336,
-  45.632,
-  45.87733333333333,
-  46.12266666666667,
-  46.368,
-  46.602666666666664,
-  46.83733333333333,
-  47.072,
-  47.31733333333333,
-  47.552,
-  47.797333333333334,
-  48.032,
-  48.27733333333333,
-  48.512,
-  48.757333333333335,
-  48.992,
-  49.23733333333333,
-  49.472,
-  49.70666666666666,
-  49.952,
-  50.18666666666667,
-  50.432,
-  50.67733333333333,
-  50.912,
-  51.157333333333334,
-  51.40266666666667,
-  51.63733333333333,
-  51.872,
-  52.117333333333335,
-  52.36266666666667,
-  52.59733333333333,
-  52.832,
-  53.06666666666667,
-  53.30133333333333,
-  53.54666666666667,
-  53.792,
-  54.037333333333336,
-  54.272,
-  54.51733333333333,
-  54.752,
-  54.99733333333333,
-  55.232,
-  55.477333333333334,
-  55.712,
-  55.95733333333333,
-  56.192,
-  56.437333333333335,
-  56.672,
-  56.91733333333333,
-  57.152,
-  57.397333333333336,
-  57.632,
-  57.87733333333333,
-  58.112,
-  58.35733333333334,
-  58.592,
-  58.83733333333333,
-  59.08266666666667,
-  59.31733333333333,
-  59.552,
-  59.797333333333334,
-  60.04266666666667,
-  60.27733333333333,
-  60.512,
-  60.74666666666667,
-  60.992,
-  61.22666666666667,
-  61.472,
-  61.717333333333336,
-  61.952,
-  62.19733333333333,
-  62.432,
-  62.67733333333333,
-  62.912,
-  63.157333333333334,
-  63.392,
-  63.63733333333333,
-  63.872,
-  64.11733333333333,
-  64.352,
-  64.59733333333334,
-  64.832,
-  65.07733333333333,
-  65.312,
-  65.55733333333333,
-  65.792,
-  66.03733333333334,
-  66.272,
-  66.51733333333334,
-  66.76266666666666,
-  66.99733333333333,
-  67.232,
-  67.46666666666667,
-  67.712,
-  67.95733333333334,
-  68.192,
-  68.42666666666666,
-  68.672,
-  68.91733333333333,
-  69.152,
-  69.39733333333334,
-  69.632,
-  69.87733333333334,
-  70.112,
-  70.35733333333333,
-  70.592,
-  70.83733333333333,
-  71.072,
-  71.31733333333334,
-  71.552,
-  71.79733333333333,
-  72.032,
-  72.27733333333333,
-  72.512,
-  72.75733333333334,
-  72.992,
-  73.23733333333334,
-  73.472,
-  73.71733333333333,
-  73.952,
-  74.19733333333333,
-  74.44266666666667,
-  74.67733333333334,
-  74.912,
-  75.14666666666666,
-  75.392,
-  75.63733333333333,
-  75.872,
-  76.10666666666667,
-  76.352,
-  76.59733333333334,
-  76.832,
-  77.07733333333333,
-  77.312,
-  77.55733333333333,
-  77.792,
-  78.03733333333334,
-  78.272,
-  78.50666666666666,
-  78.752,
-  78.99733333333333,
-  79.232,
-  79.47733333333333,
-  79.712,
-  79.95733333333334,
-  80.20266666666667,
-  80.43733333333333,
-  80.672,
-  80.90666666666667,
-  81.152,
-  81.39733333333334,
-  81.632,
-  81.87733333333334,
-  82.12266666666666,
-  82.35733333333333,
-  82.592,
-  82.83733333333333,
-  83.08266666666667,
-  83.31733333333334,
-  83.552,
-  83.79733333333333,
-  84.032,
-  84.26666666666667,
-  84.512,
-  84.74666666666667,
-  84.992,
-  85.23733333333334,
-  85.472,
-  85.71733333333333,
-  85.952,
-  86.18666666666667,
-  86.432,
-  86.66666666666667,
-  86.912,
-  87.15733333333333,
-  87.392,
-  87.62666666666667,
-  87.86133333333333,
-  88.10666666666667,
-  88.352,
-  88.58666666666667,
-  88.832,
-  89.07733333333333,
-  89.312,
-  89.55733333333333,
-  89.80266666666667,
-  90.03733333333334,
-  90.272,
-  90.51733333333334,
-  90.76266666666666,
-  90.99733333333333,
-  91.232,
-  91.46666666666667,
-  91.712,
-  91.94666666666667,
-  92.192,
-  92.43733333333333,
-  92.672,
-  92.91733333333333,
-  93.152,
-  93.39733333333334,
-  93.632,
-  93.87733333333334,
-  94.112,
-  94.35733333333333,
-  94.60266666666666,
-  94.83733333333333,
-  95.072,
-  95.31733333333334,
-  95.552,
-  95.78666666666666,
-  96.032,
-  96.26666666666667,
-  96.512,
-  96.75733333333334,
-  96.992,
-  97.23733333333334,
-  97.48266666666666,
-  97.71733333333333,
-  97.952,
-  98.19733333333333,
-  98.44266666666667,
-  98.67733333333334,
-  98.912,
-  99.14666666666666,
-  99.392,
-  99.63733333333333,
-  99.872,
-  100.11733333333333,
-  100.352,
-  100.59733333333334,
-  100.832,
-  101.07733333333333,
-  101.312,
-  101.54666666666667,
-  101.792,
-  102.03733333333334,
-  102.272,
-  102.51733333333334,
-  102.752,
-  102.99733333333333,
-  103.232,
-  103.47733333333333,
-  103.712,
-  103.95733333333334,
-  104.192,
-  104.43733333333333,
-];
+// Life Force - Beat Analysis Data
+// BPM: ~128 (typical for aura farming / melodic techno)
+// Duration: ~2:00-2:20
+// Structure: Intro -> Build -> Drop -> Breakdown -> Drop -> Outro
 
-export const STRONG_BEATS = [
-  0.05333333333333334,
-  2.933333333333333,
-  6.048,
-  8.693333333333333,
-  12.512,
-  16.352,
-  20.106666666666666,
-  24.032,
-  27.786666666666665,
-  29.792,
-  33.55733333333333,
-  35.552,
-  39.392,
-  43.232,
-  47.072,
-  50.912,
-  54.592,
-  56.672,
-  59.78666666666667,
-  62.432,
-  66.18666666666667,
-  70.112,
-  73.792,
-  75.872,
-  79.552,
-  81.632,
-  85.312,
-  87.31733333333334,
-  89.312,
-  93.152,
-  96.992,
-  100.832,
-  104.672,
-  107.072,
-];
+export interface Beat {
+  time: number; // in seconds
+  measure: number;
+  beat: number; // 1-4
+  intensity: number; // 0-1
+  type: 'kick' | 'snare' | 'hihat' | 'percussion' | 'bass' | 'melody' | 'downbeat';
+}
 
-export const TEMPO = 255.6818181818182;
-export const DURATION = 107.91475;
-export const FPS = 30;
-export const WIDTH = 1920;
-export const HEIGHT = 1080;
+export interface Measure {
+  index: number;
+  startTime: number;
+  endTime: number;
+  section: 'intro' | 'build' | 'drop' | 'breakdown' | 'drop2' | 'outro';
+  energy: number; // 0-1
+}
 
-export function getBeatAtTime(time: number): number {
-  let beatIndex = 0;
-  for (let i = 0; i < BEATS.length; i++) {
-    if (BEATS[i] <= time) {
-      beatIndex = i;
-    } else {
-      break;
+// Assuming 128 BPM = 128 beats per minute = 2.133 beats per second
+// 4 beats per measure = 0.533 measures per second
+// 1 measure = 1.875 seconds
+const BPM = 128;
+const BEATS_PER_MEASURE = 4;
+const SECONDS_PER_BEAT = 60 / BPM; // ~0.46875
+const SECONDS_PER_MEASURE = SECONDS_PER_BEAT * BEATS_PER_MEASURE; // ~1.875
+
+// Generate beat grid for ~140 seconds (2:20)
+export function generateBeatGrid(duration: number = 140): Beat[] {
+  const beats: Beat[] = [];
+  const totalBeats = Math.floor(duration / SECONDS_PER_BEAT);
+
+  for (let i = 0; i < totalBeats; i++) {
+    const time = i * SECONDS_PER_BEAT;
+    const measure = Math.floor(i / BEATS_PER_MEASURE);
+    const beatInMeasure = (i % BEATS_PER_MEASURE) + 1;
+    const isDownbeat = beatInMeasure === 1;
+
+    // Determine section based on time
+    let section: Beat['type'] = 'kick';
+    let intensity = 0.5;
+
+    if (time < 15) { // Intro (0:00-0:15)
+      section = isDownbeat ? 'downbeat' : 'percussion';
+      intensity = 0.3 + (time / 15) * 0.2;
+    } else if (time < 45) { // Build (0:15-0:45)
+      if (beatInMeasure === 1) section = 'downbeat';
+      else if (beatInMeasure === 3) section = 'snare';
+      else section = 'hihat';
+      intensity = 0.4 + ((time - 15) / 30) * 0.4;
+    } else if (time < 75) { // First Drop (0:45-1:15)
+      if (beatInMeasure === 1 || beatInMeasure === 3) section = 'kick';
+      else section = 'bass';
+      intensity = 0.9;
+    } else if (time < 105) { // Breakdown (1:15-1:45)
+      if (beatInMeasure === 1) section = 'downbeat';
+      else section = 'melody';
+      intensity = 0.3 + Math.sin((time - 75) / 30 * Math.PI) * 0.2;
+    } else if (time < 135) { // Second Drop (1:45-2:15)
+      if (beatInMeasure === 1 || beatInMeasure === 3) section = 'kick';
+      else section = 'bass';
+      intensity = 1.0;
+    } else { // Outro (2:15+)
+      section = isDownbeat ? 'downbeat' : 'percussion';
+      intensity = Math.max(0.1, 1 - (time - 135) / 20);
     }
+
+    beats.push({
+      time,
+      measure,
+      beat: beatInMeasure,
+      intensity,
+      type: section,
+    });
   }
-  return beatIndex;
+
+  return beats;
 }
 
-export function getNextBeat(time: number): number {
-  for (const beat of BEATS) {
-    if (beat > time) return beat;
+export function generateMeasures(duration: number = 140): Measure[] {
+  const measures: Measure[] = [];
+  const totalMeasures = Math.floor(duration / SECONDS_PER_MEASURE);
+
+  for (let i = 0; i < totalMeasures; i++) {
+    const startTime = i * SECONDS_PER_MEASURE;
+    const endTime = (i + 1) * SECONDS_PER_MEASURE;
+
+    let section: Measure['section'] = 'intro';
+    let energy = 0.3;
+
+    if (startTime < 15) { // Intro
+      section = 'intro';
+      energy = 0.2 + (startTime / 15) * 0.2;
+    } else if (startTime < 45) { // Build
+      section = 'build';
+      energy = 0.4 + ((startTime - 15) / 30) * 0.5;
+    } else if (startTime < 75) { // Drop 1
+      section = 'drop';
+      energy = 0.9;
+    } else if (startTime < 105) { // Breakdown
+      section = 'breakdown';
+      energy = 0.6 - ((startTime - 75) / 30) * 0.3;
+    } else if (startTime < 135) { // Drop 2
+      section = 'drop2';
+      energy = 1.0;
+    } else { // Outro
+      section = 'outro';
+      energy = Math.max(0.1, 1 - (startTime - 135) / 20);
+    }
+
+    measures.push({
+      index: i,
+      startTime,
+      endTime,
+      section,
+      energy,
+    });
   }
-  return DURATION;
+
+  return measures;
 }
 
-export function getPreviousBeat(time: number): number {
-  for (let i = BEATS.length - 1; i >= 0; i--) {
-    if (BEATS[i] < time) return BEATS[i];
-  }
-  return 0;
+// Pre-computed beat grid for the track
+export const BEATS = generateBeatGrid(140);
+export const MEASURES = generateMeasures(140);
+
+// Key moments in the track (in seconds)
+export const KEY_MOMENTS = {
+  introStart: 0,
+  buildStart: 15,
+  firstDrop: 45,
+  breakdownStart: 75,
+  secondDrop: 105,
+  outroStart: 135,
+  trackEnd: 140,
+};
+
+// Helper functions
+export function getBeatAtTime(time: number): Beat | null {
+  return BEATS.find(b => Math.abs(b.time - time) < SECONDS_PER_BEAT / 2) || null;
 }
 
-export function isStrongBeat(time: number, tolerance = 0.05): boolean {
-  return STRONG_BEATS.some(strong => Math.abs(strong - time) < tolerance);
+export function getMeasureAtTime(time: number): Measure | null {
+  return MEASURES.find(m => time >= m.startTime && time < m.endTime) || null;
 }
 
-export function getMeasureNumber(time: number): number {
-  const beatIndex = getBeatAtTime(time);
-  return Math.floor(beatIndex / 4) + 1;
+export function getBeatsInRange(startTime: number, endTime: number): Beat[] {
+  return BEATS.filter(b => b.time >= startTime && b.time <= endTime);
 }
+
+export function getDownbeatsInRange(startTime: number, endTime: number): Beat[] {
+  return BEATS.filter(b => b.time >= startTime && b.time <= endTime && b.type === 'downbeat');
+}
+
+export function getProgressInMeasure(time: number): number {
+  const measure = getMeasureAtTime(time);
+  if (!measure) return 0;
+  return (time - measure.startTime) / (measure.endTime - measure.startTime);
+}
+
+export function getProgressInSection(time: number): number {
+  const measure = getMeasureAtTime(time);
+  if (!measure) return 0;
+  
+  const sectionMeasures = MEASURES.filter(m => m.section === measure.section);
+  const sectionStart = sectionMeasures[0].startTime;
+  const sectionEnd = sectionMeasures[sectionMeasures.length - 1].endTime;
+  
+  return (time - sectionStart) / (sectionEnd - sectionStart);
+}
+
+export function getSectionAtTime(time: number): Measure['section'] {
+  const measure = getMeasureAtTime(time);
+  return measure?.section || 'intro';
+}
+
+export function getEnergyAtTime(time: number): number {
+  const measure = getMeasureAtTime(time);
+  return measure?.energy || 0;
+}
+
+// Visual sync points - exact times for major visual changes
+export const VISUAL_SYNC_POINTS = [
+  {time: 0, label: 'Intro - Fade in NewEra logo', type: 'title'},
+  {time: 3.75, label: 'Measure 2 - Geometric pulse', type: 'shape'},
+  {time: 7.5, label: 'Measure 4 - Text reveal', type: 'text'},
+  {time: 11.25, label: 'Measure 6 - Shape expansion', type: 'shape'},
+  {time: 15, label: 'BUILD START - Rhythm intensifies', type: 'transition'},
+  {time: 18.75, label: 'Measure 10 - Grid formation', type: 'shape'},
+  {time: 22.5, label: 'Measure 12 - Typography build', type: 'text'},
+  {time: 26.25, label: 'Measure 14 - Line animations', type: 'shape'},
+  {time: 30, label: 'Measure 16 - Pre-drop tension', type: 'transition'},
+  {time: 33.75, label: 'Measure 18 - Snare rolls', type: 'shape'},
+  {time: 37.5, label: 'Measure 20 - Final build', type: 'transition'},
+  {time: 41.25, label: 'Measure 22 - Silence before drop', type: 'transition'},
+  {time: 45, label: 'FIRST DROP - Full energy', type: 'drop'},
+  {time: 48.75, label: 'Measure 26 - Bass sync', type: 'shape'},
+  {time: 52.5, label: 'Measure 28 - Geometric explosion', type: 'shape'},
+  {time: 56.25, label: 'Measure 30 - Typography lock', type: 'text'},
+  {time: 60, label: 'Measure 32 - Pattern shift', type: 'transition'},
+  {time: 63.75, label: 'Measure 34 - Morphing shapes', type: 'shape'},
+  {time: 67.5, label: 'Measure 36 - Color flash', type: 'transition'},
+  {time: 71.25, label: 'Measure 38 - Pre-breakdown', type: 'transition'},
+  {time: 75, label: 'BREAKDOWN - Atmospheric', type: 'transition'},
+  {time: 78.75, label: 'Measure 42 - Melodic focus', type: 'text'},
+  {time: 82.5, label: 'Measure 44 - Minimal geometry', type: 'shape'},
+  {time: 86.25, label: 'Measure 46 - Text breathing', type: 'text'},
+  {time: 90, label: 'Measure 48 - Slow build', type: 'transition'},
+  {time: 93.75, label: 'Measure 50 - Rising tension', type: 'shape'},
+  {time: 97.5, label: 'Measure 52 - Drum return', type: 'transition'},
+  {time: 101.25, label: 'Measure 54 - Final buildup', type: 'transition'},
+  {time: 105, label: 'SECOND DROP - Maximum energy', type: 'drop'},
+  {time: 108.75, label: 'Measure 58 - Complex patterns', type: 'shape'},
+  {time: 112.5, label: 'Measure 60 - Full typography', type: 'text'},
+  {time: 116.25, label: 'Measure 62 - Shape chaos', type: 'shape'},
+  {time: 120, label: 'Measure 64 - Peak moment', type: 'drop'},
+  {time: 123.75, label: 'Measure 66 - Variation', type: 'transition'},
+  {time: 127.5, label: 'Measure 68 - Wind down', type: 'transition'},
+  {time: 131.25, label: 'Measure 70 - Fade preparation', type: 'transition'},
+  {time: 135, label: 'OUTRO - Gentle close', type: 'transition'},
+  {time: 138.75, label: 'Measure 74 - Final logo', type: 'title'},
+  {time: 140, label: 'END', type: 'end'},
+];
+
+// Color palette for Full Vibe aesthetic
+export const COLOR_PALETTE = {
+  background: '#000000',
+  foreground: '#FFFFFF',
+  accent: '#00FF88', // Neon green for NewEra brand
+  accentDim: '#00CC6A',
+  accentBright: '#33FF99',
+  gray100: '#1A1A1A',
+  gray200: '#333333',
+  gray300: '#4D4D4D',
+  gray400: '#666666',
+  gray500: '#808080',
+  gray600: '#999999',
+  gray700: '#B3B3B3',
+  gray800: '#CCCCCC',
+  gray900: '#E6E6E6',
+  red: '#FF3333',
+  blue: '#3399FF',
+  yellow: '#FFCC00',
+};
+
+// Typography scale
+export const TYPOGRAPHY = {
+  fontFamily: 'Space Grotesk',
+  displayLarge: {size: 120, weight: 700, letterSpacing: -0.02, lineHeight: 1.1},
+  displayMedium: {size: 80, weight: 600, letterSpacing: -0.01, lineHeight: 1.15},
+  displaySmall: {size: 56, weight: 500, letterSpacing: 0, lineHeight: 1.2},
+  headlineLarge: {size: 48, weight: 600, letterSpacing: 0, lineHeight: 1.25},
+  headlineMedium: {size: 36, weight: 500, letterSpacing: 0, lineHeight: 1.3},
+  headlineSmall: {size: 28, weight: 500, letterSpacing: 0, lineHeight: 1.35},
+  titleLarge: {size: 22, weight: 600, letterSpacing: 0.01, lineHeight: 1.4},
+  titleMedium: {size: 18, weight: 500, letterSpacing: 0.01, lineHeight: 1.45},
+  titleSmall: {size: 14, weight: 500, letterSpacing: 0.02, lineHeight: 1.5},
+  bodyLarge: {size: 16, weight: 400, letterSpacing: 0, lineHeight: 1.5},
+  bodyMedium: {size: 14, weight: 400, letterSpacing: 0.01, lineHeight: 1.55},
+  bodySmall: {size: 12, weight: 400, letterSpacing: 0.02, lineHeight: 1.6},
+  labelLarge: {size: 14, weight: 600, letterSpacing: 0.05, lineHeight: 1.4},
+  labelMedium: {size: 12, weight: 600, letterSpacing: 0.05, lineHeight: 1.45},
+  labelSmall: {size: 11, weight: 600, letterSpacing: 0.05, lineHeight: 1.5},
+};
+
+// Spacing scale (8px base)
+export const SPACING = {
+  xs: 4,
+  sm: 8,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  xxl: 48,
+  xxxl: 64,
+  huge: 96,
+  massive: 128,
+};
+
+// Border radius
+export const BORDER_RADIUS = {
+  none: 0,
+  sm: 4,
+  md: 8,
+  lg: 16,
+  xl: 24,
+  full: 9999,
+};
