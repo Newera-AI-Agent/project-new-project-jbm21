@@ -596,7 +596,7 @@ export const MainComposition: React.FC = () => {
 
   return (
     <>
-      <Audio src="../../life_force.mp3" />
+      <Audio src="/life_force.mp3" />
       
       {/* Background */}
       <Rect
