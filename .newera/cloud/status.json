@@ -4,8 +4,8 @@
   "relayIndex": 0,
   "maxMinutes": 240,
   "state": "running",
-  "step": 4,
-  "minutesLeft": 232,
-  "todoOpen": 0,
-  "updatedAt": "2026-10-12T12:26:16.326Z"
+  "step": 10,
+  "minutesLeft": 230,
+  "todoOpen": 8,
+  "updatedAt": "2026-10-12T12:28:16.330Z"
 }
